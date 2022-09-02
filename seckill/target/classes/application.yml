@@ -1,0 +1,112 @@
+spring:
+  #静态资源处理
+  web:
+    resources:
+      add-mappings: true
+      cache:
+        cachecontrol:
+          #缓存相应时间
+          max-age: 3600
+      chain:
+        #资源链启动缓存
+        cache: true
+        #启动资源链，默认禁用
+        enabled: true
+        #启用压缩资源解析（gzip，brotli），默认禁用
+        compressed: true
+        #启用h5缓存
+      static-locations: classpath:/static/
+
+
+  #thymeleaf??
+  thymeleaf:
+    #????
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seckill?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    hikari:
+      #????
+      pool-name: DateHikariCP
+      #???????
+      minimum-idle: 5
+      #?????????????60000
+      idle-timeout: 180000
+      #?????10
+      maximum-pool-size: 10
+      #?????????????
+      auto-commit: true
+      #?????????0?????
+      max-lifetime: 180000
+      #??????30000
+      connection-timeout: 30000
+      #????
+      connection-test-query: SELECT 1
+
+  #redis配置
+  redis:
+    #服务器地址
+    host: 172.16.191.133
+    #端口号
+    port: 6379
+    #数据库
+    database: 0
+    #超时时间
+    timeout: 10000ms
+    #2.0之后使用lettuce客户端
+    lettuce:
+      pool:
+        #最大连接数，默认8
+        max-active: 8
+        #最大连接阻塞等待时间，默认-1
+        max-wait: 10000ms
+        #最大空闲连接，默认8
+        max-idle: 200
+        #最小空闲连接，默认0
+        min-idle: 5
+  rabbitmq:
+    #server
+    host: 172.16.191.135
+    username: guest
+    password: guest
+    virtual-host: /
+    port: 5672
+    listener:
+      simple:
+        #消费者最小
+        concurrency: 10
+        #消费者最大
+        max-concurrency: 10
+        #限制消费者每次一条消息
+        prefetch: 1
+        #启动时是否自动启动容器
+        auto-startup: true
+        #被拒绝时进入队列
+        default-requeue-rejected: true
+    template:
+      retry:
+        #发布重试
+        enabled: true
+        #重试时间
+        initial-interval: 1000ms
+        #重试此时
+        max-attempts: 3
+        #最大间隔时间
+        max-interval: 10000ms
+        #重试的乘数
+        multiplier: 1
+#mybatis??
+mybatis-plus:
+  #??mapper.xml????
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  #??mybatis????????(???????)
+  type-aliases-package: com.xxxx.seckill.pojo
+
+#mybatisSQL??????????????Mapper.xml??
+logging:
+  level:
+    com.xxxx.seckill.mapper: debug
+
+
