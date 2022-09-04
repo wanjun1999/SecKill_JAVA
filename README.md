@@ -10,9 +10,9 @@ IntelliJ IDEA + Navicat + CentOS7(VMware) + RedisDeskTop
 ## 压力测试工具
 JMeter 
 ## 项目部署
-拷贝项目到idea中打开，并更新依赖
-拷贝目录中sql生成数据库
-启动redis服务器和rabbitMQ服务器
-运行项目中启动类
-正常启动后访问localhost:8080/login/to_Login
-输入用户名和密码点击登录
+- 拷贝项目到idea中打开，并更新依赖
+- 拷贝目录中sql生成数据库
+- 启动redis服务器和rabbitMQ服务器
+- 运行项目中启动类
+- 正常启动后访问localhost:8080/login/to_Login
+- 输入用户名和密码点击登录
