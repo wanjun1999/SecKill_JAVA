@@ -14,5 +14,6 @@ JMeter
 - 拷贝目录中sql生成数据库
 - 启动redis服务器和rabbitMQ服务器
 - 运行项目中启动类
-- 正常启动后访问localhost:8080/login/to_Login
-- 输入用户名和密码点击登录
+- 正常启动后访问localhost:8080/login/doLogin
+- 输入用户名和密码点击登录(用户名密码在数据库中)
+- 压测脚本可以用test01.jmx
